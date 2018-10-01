@@ -19,14 +19,16 @@ class App extends Component {
   }
 
   render() {
+    const turbo = this.state.working?"App-logo-working":"App-logo";
+    const actionLabel = this.state.working?"En pause!":"Au travail!";
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className={(this.state.working?"App-logo-working":"App-logo")} alt="logo" />
+          <img src={logo} className={turbo} alt="logo" />
           <h1 className="App-title">Simpsons Quotes</h1>
         </header>
         {/* <p>{this.state.working.toString()}</p> */}
-        <button onClick={this.alterAnime.bind(this)}>{(this.state.working?"En pause!":"Au travail!")}</button>
+        <button onClick={this.alterAnime.bind(this)}>{actionLabel}</button>
         <Quotes/>
       </div>
     );
